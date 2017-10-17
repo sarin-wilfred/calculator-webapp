@@ -1,0 +1,67 @@
+<html>
+	<head>
+    
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<script src= "../js/lib/angular.min.js"></script>
+		<script src= "../js/app/calculator.js"></script>
+		
+	</head>
+	
+	<body>
+		<form name="calcForm" class = "calc" ng-app="CalculatorApp" ng-controller="CalculatorController">
+			<p><span class="calc-message"ng-show="calcForm.operator.$error.required">Please select an operator.</span></p>
+			<p><span class="calc-message"ng-show="calcForm.operand1.$error.required">Please enter first operand.</span></p>
+			<p><span class="calc-message" ng-show="calcForm.operand2.$error.required">Please enter second operand.</span></p>
+			<table>
+				<tr>
+					<td class="calc-label">
+						Operand 1:
+					</td>
+					<td>
+						<input name="operand1" type="number" ng-model="operand1" required>
+					</td>
+				</tr>
+				<tr>
+					<td class="calc-label">
+						Operator :
+					</td>
+					<td>
+						<select name="operator" ng-model="operator" required>
+					      <option>+</option>
+					      <option>*</option>
+					      <option>-</option>
+					      <option>/</option>
+					    </select>
+					</td>
+				</tr>
+				<tr>
+					<td class="calc-label">
+						Operand 2:
+					</td>
+					<td>
+						<input name="operand2" type="number" ng-model="operand2" required>
+					</td>
+				</tr>
+				<tr>
+					<td  class="calc-label">
+						Result :
+					</td>
+					<td>
+						<!-- <strong><span ng-bind="result"></span></strong> -->
+						 <input type="number" name="result" id="result" value="{{result}}" ng-disabled="true"/>
+						<!--  <input type="number" name="result" id="result" ng-bind="result" ng-disabled="true"/> -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button ng-click="clear()">Clear</button>
+					</td>
+					<td>
+						<button ng-click="calculate()">Calculate</button>
+					</td>
+				</tr>
+			</table>
+		 </form>
+	</body>
+ 
+ </html>
